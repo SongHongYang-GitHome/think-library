@@ -1,5 +1,5 @@
 <?php
-namespace app\common\command;
+namespace library\command;
 
 use think\console\Command;
 
