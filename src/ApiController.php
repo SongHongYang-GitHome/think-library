@@ -7,12 +7,11 @@
 namespace library;
 
 use think\Container;
-use think\Controller as ThinkController;
 use think\Exception;
 use think\exception\HttpResponseException;
 use think\facade\Response;
 
-class ApiController
+class ApiController extends \think\Controller
 {
     /**
      * 定义当前Service需要使用依赖
