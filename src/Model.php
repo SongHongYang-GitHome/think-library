@@ -5,6 +5,8 @@
  */
 
 namespace library;
+use library\helper\ApiPageHelper;
+use library\helper\ApiQueryHelper;
 use think\Container;
 use think\db\Query;
 use think\Exception;
@@ -23,13 +25,13 @@ class Model extends ThinkModel
 
     /**
      * 快捷查询逻辑器
-     * @return QueryHelper
+     * @return ApiQueryHelper
      * @throws Exception
      */
     public function _query()
     {
         if (empty($this->table)) throw new Exception(get_called_class() . "未指定表名");
-        return QueryHelper::instance()->init($this->table);
+        return ApiQueryHelper::instance()->init($this->table);
     }
 
     /**
@@ -42,6 +44,6 @@ class Model extends ThinkModel
     public function _page($page = true, $limit = 0)
     {
         if (empty($this->table)) throw new Exception(get_called_class() . "未指定表名");
-        return PageHelper::instance()->init($this->table, $page, $limit);
+        return ApiPageHelper::instance()->init($this->table, $page, $limit);
     }
 }

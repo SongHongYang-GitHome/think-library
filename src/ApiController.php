@@ -6,6 +6,9 @@
 
 namespace library;
 
+use library\helper\ApiInputHelper;
+use library\helper\ApiPageHelper;
+use library\helper\ApiQueryHelper;
 use think\Container;
 use think\Exception;
 use think\exception\HttpResponseException;
@@ -200,12 +203,12 @@ class ApiController extends \think\Controller
     /**
      * 快捷查询逻辑器
      * @param string|Query $dbQuery
-     * @return QueryHelper|Model
+     * @return ApiQueryHelper|Model
      */
     protected function _query($dbQuery)
     {
         $this->dbQuery = $dbQuery;
-        return QueryHelper::instance()->init($dbQuery);
+        return ApiQueryHelper::instance()->init($dbQuery);
     }
 
     /**
@@ -217,7 +220,7 @@ class ApiController extends \think\Controller
      */
     protected function _page($dbQuery, $page = true, $limit = 0)
     {
-        return PageHelper::instance()->init($dbQuery, $page, $limit);
+        return ApiPageHelper::instance()->init($dbQuery, $page, $limit);
     }
 
     /**
@@ -229,6 +232,6 @@ class ApiController extends \think\Controller
      */
     protected function _input($params, $rule = [], $info = [])
     {
-        return InputHelper::instance()->init($params, $rule, $info);
+        return ApiInputHelper::instance()->init($params, $rule, $info);
     }
 }
