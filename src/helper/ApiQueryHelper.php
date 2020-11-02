@@ -6,11 +6,47 @@
 
 namespace library\helper;
 
+use think\App;
+use think\Request;
+use library\ApiController;
 use think\Container;
 use think\Db;
 
+
 class ApiQueryHelper
 {
+    /**
+     * 当前应用容器
+     * @var App
+     */
+    public $app;
+
+    /**
+     * 请求实例
+     * @var Query
+     */
+    public $request;
+
+    /**
+     * 控制器实例
+     * @var Query
+     */
+    public $controller;
+
+    /**
+     * 构造函数
+     * InputHelper constructor.
+     * @param App $app
+     * @param ApiController $controller
+     * @param Request $request
+     */
+    public function __construct(App $app, ApiController $controller, Request $request)
+    {
+        $this->app = $app;
+        $this->controller = $controller;
+        $this->request = $request;
+    }
+
     /**
      * Query call.
      * @param string $name 调用方法名称
