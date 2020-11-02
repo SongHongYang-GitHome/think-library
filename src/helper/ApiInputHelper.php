@@ -9,6 +9,7 @@ use think\App;
 use think\Container;
 use think\facade\Validate;
 use think\Request;
+use library\ApiController;
 
 class ApiInputHelper
 {
@@ -52,10 +53,10 @@ class ApiInputHelper
      * 构造函数
      * InputHelper constructor.
      * @param App $app
-     * @param Controller $controller
+     * @param ApiController $controller
      * @param Request $request
      */
-    public function __construct(App $app, Controller $controller, Request $request)
+    public function __construct(App $app, ApiController $controller, Request $request)
     {
         $this->app = $app;
         $this->controller = $controller;
