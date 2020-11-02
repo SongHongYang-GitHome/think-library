@@ -48,7 +48,7 @@ class ApiController extends \think\Controller
     static protected $returnCodeName = [
         "codeName"      =>  "code",
         "dataName"      =>  "data",
-        "messageName"   =>  "msg"
+        "messageName"   =>  "info"
     ];
 
     /**
