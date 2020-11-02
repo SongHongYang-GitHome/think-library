@@ -259,7 +259,7 @@ class ApiQueryHelper
      */
     public function page($page = true, $limit = 0)
     {
-        return PageHelper::instance()->init($this->query, $page, $limit);
+        return ApiPageHelper::instance()->init($this->query, $page, $limit);
     }
 
     /**
