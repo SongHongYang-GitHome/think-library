@@ -48,6 +48,9 @@ class ApiToken
 
     /**
      * 设置Token
+     * @param String $mark
+     * @param String $data
+     * @return mixed
      */
     public function set(String $mark, String $data)
     {
@@ -58,6 +61,7 @@ class ApiToken
         } else {
             $this->redisClient->set($key, $token);
         }
+        return $token;
     }
 
     /**
